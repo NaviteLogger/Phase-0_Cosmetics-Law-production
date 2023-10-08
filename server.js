@@ -643,12 +643,7 @@ app.post("/buySelectedAgreements", async (req, res) => {
               reject(error);
             } else {
               //Append the selected agreement price to the array
-              console.log("Agreement price: ", results[0].agreementPrice);
               selectedAgreementsPrices.push(results[0].agreementPrice);
-              console.log(
-                "Now the array of prices contains: ",
-                selectedAgreementsPrices
-              );
               resolve();
             }
           }
@@ -668,7 +663,7 @@ app.post("/buySelectedAgreements", async (req, res) => {
     );
     res.json({ status: "success", message: "Redirecting the user" });
   } catch (error) {
-    console.log("Error while buying selected agreements", error);
+    console.log("Error while buying selected agreements: ", error);
     res
       .status(500)
       .json({ status: "error", message: "Internal server error: " + error });
@@ -709,7 +704,7 @@ app.get("/orderSummaryPage", checkAuthentication, (req, res) => {
       ip: req.ip,
     });
   } catch (error) {
-    console.log("Error while displaying the order's summary page", error);
+    console.log("Error while displaying the order's summary page: ", error);
     res
       .status(500)
       .json({ status: "error", message: "Internal server error: " + error });
@@ -734,8 +729,8 @@ app.post("/makePaymentForAgreements", async (req, res) => {
       try {
         selectedAgreementsNames = selectedAgreementsNames.split(",");
         //selectedAgreementsNames = JSON.parse(selectedAgreementsNames);
-      } catch (err) {
-        console.error("Error parsing selectedAgreementsNames:", err);
+      } catch (error) {
+        console.error("Error parsing selectedAgreementsNames: ", error);
       }
     }
 
