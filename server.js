@@ -885,7 +885,10 @@ app.post("/makePaymentForAgreements", async (req, res) => {
         ],
         (error, results) => {
           if (error) {
-            console.log("Error while querying the database: ", error);
+            console.log(
+              "Error while querying the database (inserting order details): ",
+              error
+            );
             reject(error);
           } else {
             console.log(
@@ -907,7 +910,10 @@ app.post("/makePaymentForAgreements", async (req, res) => {
           [extOrderId, selectedAgreementsNames[i], selectedAgreementsPrices[i]],
           (error, results) => {
             if (error) {
-              console.log("Error while querying the database: ", error);
+              console.log(
+                "Error while querying the database (inserting ordered products): ",
+                error
+              );
               reject(error);
             } else {
               console.log(
