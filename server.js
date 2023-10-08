@@ -636,7 +636,10 @@ app.post("/buySelectedAgreements", async (req, res) => {
           [agreementId],
           (error, results) => {
             if (error) {
-              console.log("Error while querying the database", error);
+              console.log(
+                "Error while querying the database for agreementPrice in buySelectedAgreements: ",
+                error
+              );
               reject(error);
             } else {
               //Append the selected agreement price to the array
