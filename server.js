@@ -731,7 +731,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
     }
 
     //For each of the selectedAgreementsNames, query the database to retrieve the price (security measures)
-    const boughtSubscriptionPromises = selectedAgreementsNames.map(
+    const boughtAgreementsPromises = selectedAgreementsNames.map(
       (agreementName, index) => {
         return new Promise((resolve, reject) => {
           connection.query(
@@ -787,7 +787,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
     );
 
     //Wait for all the promises to resolve
-    selectedAgreementsPrices = await Promise.all(boughtSubscriptionPromises);
+    selectedAgreementsPrices = await Promise.all(boughtAgreementsPromises);
 
     const email = req.body.email;
     console.log("Email: ", email);
@@ -953,7 +953,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
         from: process.env.DEFAULT_EMAIL,
         to: email,
         subject: "Potwierdzenie zamówienia",
-        text: `Dziękujemy za zakupienie zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: ${process.env.DEFAULT_EMAIL}`,
+        text: `Dziękujemy za zakupienie wybranych zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: ${process.env.DEFAULT_EMAIL}`,
       };
 
       transporter.sendMail(emailOptions, (error, info) => {
