@@ -592,7 +592,7 @@ app.post("/verifyEmailAddress", (req, res) => {
 //Handle the incoming POST request to the 'buy selected agreements' option
 app.post("/buySelectedAgreements", async (req, res) => {
   try {
-    console.log("Received a request to buy selected agreements");
+    console.log("Received a request to buy selected agreements (individual)");
     const selectedAgreements = req.body;
     console.log("Selected agreements: ", selectedAgreements);
 
