@@ -739,7 +739,10 @@ app.post("/makePaymentForAgreements", async (req, res) => {
             [agreementName],
             (error, results) => {
               if (error) {
-                console.log("Error while querying the database", error);
+                console.log(
+                  "Error while querying the database for agreementPrice in makePaymentForAgreements: ",
+                  error
+                );
                 reject(error);
               } else if (results.length === 0) {
                 console.log(
