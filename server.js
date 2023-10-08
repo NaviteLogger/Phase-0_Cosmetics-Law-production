@@ -802,7 +802,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
         selectedAgreementsNames = selectedAgreementsNames.split(",");
         //selectedAgreementsNames = JSON.parse(selectedAgreementsNames);
       } catch (err) {
-        console.error("Error parsing selectedAgreementsNames:", err);
+        console.error("Error parsing selectedAgreementsNames: ", err);
       }
     }
 
