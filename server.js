@@ -953,7 +953,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
         from: process.env.DEFAULT_EMAIL,
         to: email,
         subject: "Potwierdzenie zamówienia",
-        text: `Dziękujemy za zakupienie zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: pomoc@prawokosmetyczne.pl`,
+        text: `Dziękujemy za zakupienie zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: ${process.env.DEFAULT_EMAIL}`,
       };
 
       transporter.sendMail(emailOptions, (error, info) => {
