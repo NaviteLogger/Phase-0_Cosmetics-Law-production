@@ -1090,7 +1090,10 @@ app.post(
               [status, extOrderId],
               (error, results) => {
                 if (error) {
-                  console.log("Error while querying the database", error);
+                  console.log(
+                    "Error while querying the database (updating order status): ",
+                    error
+                  );
                   reject(error);
                 } else {
                   console.log(
