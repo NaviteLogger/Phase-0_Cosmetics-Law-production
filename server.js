@@ -812,7 +812,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
           .split(",")
           .map(Number);
       } catch (err) {
-        console.error("Error parsing selectedAgreementsPrices:", err);
+        console.error("Error parsing selectedAgreementsPrices: ", err);
       }
     }
 
@@ -948,12 +948,15 @@ app.post("/makePaymentForAgreements", async (req, res) => {
 
       console.log("Response from PayU: ", response.data);
 
+      //Prepare a human-readable list of products the user bought
+      selectedAgreementsNames = selectedAgreementsNames.join(", ");
+
       //Send the user the order confirmation email
       let emailOptions = {
         from: process.env.DEFAULT_EMAIL,
         to: email,
         subject: "Potwierdzenie zamówienia",
-        text: `Dziękujemy za zakupienie wybranych zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: ${process.env.DEFAULT_EMAIL}`,
+        text: `Dziękujemy za zakupienie wybranych zgód. Poniżej znajduje się link do płatności: ${response.data.redirectUri}. W przypadku pytań prosimy o kontakt na adres: ${process.env.DEFAULT_EMAIL}. Zakupione produkty to: ${selectedAgreementsNames}.`,
       };
 
       transporter.sendMail(emailOptions, (error, info) => {
