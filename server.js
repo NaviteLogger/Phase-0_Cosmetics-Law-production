@@ -1022,7 +1022,7 @@ app.post(
 
       //Compare the expected signature with the incoming signature
       if (incomingSignature !== expectedSignature) {
-        console.log("Invalid signature");
+        console.log("Invalid signature: ", incomingSignature);
         return res.status(400).send("Invalid signature");
       }
 
