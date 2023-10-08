@@ -483,7 +483,10 @@ async function countPDFPages(pdfBuffer) {
 function deleteFilesInDirectory(directory, keyword) {
   fs.readdir(directory, (error, files) => {
     if (error) {
-      console.log("Error while reading the directory: ", error);
+      console.log(
+        "Error while reading the directory (for files removal): ",
+        error
+      );
       return;
     }
 
