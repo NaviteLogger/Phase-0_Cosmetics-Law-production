@@ -524,7 +524,7 @@ async function getPayUToken() {
 
 /*********************************************************************************/
 
-//Handle the incoming POST request to the verify email page
+//Handle the incoming POST request to the verify email address page
 app.post("/verifyEmailAddress", (req, res) => {
   const email = req.body.email;
   const emailVerificationCode = req.body.emailVerificationCode;
