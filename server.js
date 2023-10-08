@@ -983,7 +983,7 @@ app.post("/makePaymentForAgreements", async (req, res) => {
       }
     }
   } catch (error) {
-    console.log("Error while making payment for the agreements", error);
+    console.log("Error while making payment for the agreements: ", error);
     res
       .status(500)
       .json({ status: "error", message: "Internal server error: " + error });
