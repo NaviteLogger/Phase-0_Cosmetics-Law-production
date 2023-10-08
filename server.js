@@ -559,7 +559,7 @@ app.post("/verifyEmailAddress", (req, res) => {
           (error, results) => {
             if (error) {
               console.log(
-                "Error while querying the database: setting isVerified to 1 for email: " +
+                "Error while querying the database: setting isVerified to 1 for email failed: " +
                   email,
                 error
               );
@@ -592,6 +592,7 @@ app.post("/verifyEmailAddress", (req, res) => {
 //Handle the incoming POST request to the 'buy selected agreements' option
 app.post("/buySelectedAgreements", async (req, res) => {
   try {
+    console.log("Received a request to buy selected agreements");
     const selectedAgreements = req.body;
     console.log("Selected agreements: ", selectedAgreements);
 
