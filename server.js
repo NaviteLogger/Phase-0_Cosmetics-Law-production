@@ -3925,7 +3925,7 @@ app.get(
       if (req.session.photoConsent === true) {
         //This email will contain the photo consent as well
         let emailOptions = {
-          from: process.env.EMAIL_ADDRESS,
+          from: process.env.DEFAULT_EMAIL,
           to: req.session.passport.user.email,
           subject: "Zgody dnia " + req.session.formattedDate,
           text:
@@ -4040,7 +4040,7 @@ app.get(
       } else {
         //This email will not contain the photo consent
         let emailOptions = {
-          from: process.env.EMAIL_ADDRESS,
+          from: process.env.DEFAULT_EMAIL,
           to: req.session.passport.user.email,
           subject: "Zgody dnia " + req.session.formattedDate,
           text:
@@ -4384,7 +4384,7 @@ app.post("/register", async (req, res) => {
 
       //Set up the email options
       const mailOptions = {
-        from: process.env.EMAIL_ADDRESS,
+        from: process.env.DEFAULT_EMAIL,
         to: email,
         subject: "Potwierdzenie rejestracji adresu email",
         text: "Twój kod potwierdzający adres email to: " + verificationCode,
