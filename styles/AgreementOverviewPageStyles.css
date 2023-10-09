@@ -88,3 +88,7 @@ label {
 #message {
   text-align: center;
 }
+
+p {
+  max-width: 80%;
+}
