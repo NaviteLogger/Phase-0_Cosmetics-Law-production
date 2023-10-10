@@ -57,10 +57,9 @@
               </tr>
             </thead>
             <tbody>
-              <% subscriptionInfo.forEach(subscription=> { let rawDate = new
-                Date(subscription.accessExpiresDate); let formattedDate =
-                `${rawDate.getDate()}/${rawDate.getMonth() +
-                1}/${rawDate.getFullYear()}`; %>
+              <% subscriptionInfo.forEach(subscription=> {
+                let rawDate = new Date(subscription.accessExpiresDate);
+                let formattedDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`; %>
                 <tr>
                   <td>
                     <%= subscription.subscriptionName.replace(/_/g, ' ' ) %>
@@ -89,12 +88,9 @@
               </tr>
             </thead>
             <tbody>
-              <% agreements.forEach(agreement=> { let rawDate = new
-                Date(agreement.accessExpiresDate); // Here we just use
-                rawDate.getMonth() + 1 for numeric month (added 1 since getMonth()
-                returns 0-11) let formattedDate =
-                `${rawDate.getDate()}/${rawDate.getMonth() +
-                1}/${rawDate.getFullYear()}`; %>
+              <% agreements.forEach(agreement=> { let rawDate = new Date(agreement.accessExpiresDate); // Here we just
+                use rawDate.getMonth() + 1 for numeric month (added 1 since getMonth() returns 0-11)
+                let formattedDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`; %>
                 <tr>
                   <td>
                     <%= agreement.agreementName.replace(/_/g, ' ' ) %>
