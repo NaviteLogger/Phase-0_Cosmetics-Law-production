@@ -23,6 +23,7 @@ canvas {
 
 @media screen and (max-width: 700px) {
   #signatureCanvas {
+    touch-action: none;
     width: 300px;
     height: 420px;
   }
