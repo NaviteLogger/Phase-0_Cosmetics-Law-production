@@ -2502,6 +2502,25 @@ app.get(
       const dateAfter30Days = new Date();
       dateAfter30Days.setDate(currentDate.getDate() + 30);
 
+      //Handle the possible removal of the remaining files
+      //Extract the user email from the session
+      const modifiedUserEmail = req.session.passport.user.email.replace(
+        /[^a-zA-Z0-9]/g,
+        "_"
+      );
+
+      //Delete the remaining files in the agreements directory
+      deleteFilesInDirectory(
+        path.join(__dirname, "agreements"),
+        modifiedUserEmail
+      );
+
+      //Delete the remaining files in the interviews directory
+      deleteFilesInDirectory(
+        path.join(__dirname, "interviews"),
+        modifiedUserEmail
+      );
+
       //Check what agreements the user has access to in the form of subscriptions
       await new Promise((resolve, reject) => {
         connection.query(
