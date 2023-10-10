@@ -12,19 +12,36 @@
 /* Container for each question */
 .question {
   display: grid;
-  grid-template-columns: 1fr auto auto; /* 1 fraction for the question, auto for the radio buttons and textarea */
+  grid-template-columns: 1fr auto auto;
+  /* 1 fraction for the question, auto for the radio buttons and textarea */
   align-items: center;
-  gap: 3%; /* Space between grid items */
+  gap: 3%;
+  /* Space between grid items */
   margin: 3%;
-  border-bottom: 1px solid #ccc; /* Add a bottom border to each question */
-  transition: color 0.3s ease; /* Add a transition effect to the background color */
+  border-bottom: 1px solid #ccc;
+  /* Add a bottom border to each question */
+  transition: color 0.3s ease;
+  /* Add a transition effect to the background color */
 }
 
 /* Styling for the question label */
 .question-label {
   font-size: 1.8rem;
   font-weight: bold;
-  text-align: justify; /* Justify the question text */
+  text-align: justify;
+  /* Justify the question text */
+}
+
+@media screen and (max-width: 800px) {
+  .question-label {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .question-label {
+    font-size: 1.4rem;
+  }
 }
 
 /* Container for the radio buttons */
@@ -58,9 +75,12 @@ textarea {
 
 .submit-container {
   display: flex;
-  justify-content: center; /* Horizontally center the button */
-  align-items: center; /* Vertically center the button (if needed) */
-  padding: 20px 0; /* Optional: Add some padding around the button */
+  justify-content: center;
+  /* Horizontally center the button */
+  align-items: center;
+  /* Vertically center the button (if needed) */
+  padding: 20px 0;
+  /* Optional: Add some padding around the button */
 }
 
 .submit-button {
