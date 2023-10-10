@@ -61,71 +61,66 @@
       </p>
       <div class="subscriptions-list">
         <% if (subscriptionInfo.length==0) { %>
-          <p>Nie posiadasz zakupionych subskrypcji.</p>
-          <% } else { %>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nazwa subskrypcji:</th>
-                  <th>Dostęp wygasa:</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% subscriptionInfo.forEach(subscription=> {
-                  let rawDate = new Date(subscription.accessExpiresDate);
-                  let formattedDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`;
-                  %>
-                  <tr>
-                    <td>
-                      <%= subscription.subscriptionName.replace(/_/g, ' ' ) %>
-                    </td>
-                    <td>
-                      <%= formattedDate %>
-                    </td>
-                  </tr>
-                  <% }) %>
-              </tbody>
-            </table>
-            <% } %>
+        <p>Nie posiadasz zakupionych subskrypcji.</p>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Nazwa subskrypcji:</th>
+              <th>Dostęp wygasa:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% subscriptionInfo.forEach(subscription=> { let rawDate = new
+            Date(subscription.accessExpiresDate); let formattedDate =
+            `${rawDate.getDate()}/${rawDate.getMonth() +
+            1}/${rawDate.getFullYear()}`; %>
+            <tr>
+              <td><%= subscription.subscriptionName.replace(/_/g, ' ' ) %></td>
+              <td><%= formattedDate %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
       </div>
       <h3 class="headings">
         W tym miejscu możesz zobaczyć swoje zakupione zgody:
       </h3>
       <div class="agreements-list">
         <% if (agreements.length==0) { %>
-          <p>Nie posiadasz zakupionych zgód</p>
-          <% } else { %>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nazwa zgody:</th>
-                  <th>Dostęp wygaza:</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% agreements.forEach(agreement=> {
-                  let rawDate = new Date(agreement.accessExpiresDate);
-                  // Here we just use rawDate.getMonth() + 1 for numeric month (added 1 since getMonth() returns 0-11)
-                  let formattedDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`;
-                  %>
-                  <tr>
-                    <td>
-                      <%= agreement.agreementName.replace(/_/g, ' ' ) %>
-                    </td>
-                    <td>
-                      <%= formattedDate %>
-                    </td>
-                  </tr>
-                  <% }) %>
-              </tbody>
-            </table>
-            <% } %>
+        <p>Nie posiadasz zakupionych zgód</p>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Nazwa zgody:</th>
+              <th>Dostęp wygaza:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% agreements.forEach(agreement=> { let rawDate = new
+            Date(agreement.accessExpiresDate); // Here we just use
+            rawDate.getMonth() + 1 for numeric month (added 1 since getMonth()
+            returns 0-11) let formattedDate =
+            `${rawDate.getDate()}/${rawDate.getMonth() +
+            1}/${rawDate.getFullYear()}`; %>
+            <tr>
+              <td><%= agreement.agreementName.replace(/_/g, ' ' ) %></td>
+              <td><%= formattedDate %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
       </div>
 
       <br />
       <div class="buttons-container">
-        <a class="buy-button clients-portal">KUP SUBSKRYPCJĘ</a>
-        <a class="buy-button clients-portal">KUP ZGODY</a>
+        <a href="/offerPage" class="buy-button clients-portal"
+          >KUP SUBSKRYPCJĘ</a
+        >
+        <a href="/offerPage" class="buy-button clients-portal">KUP ZGODY</a>
         <a
           href="/agreementsGeneratorPage"
           class="buy-button clients-portal"
