@@ -1,141 +1,123 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../styles/normalize.css" rel="stylesheet" type="text/css" />
-    <link href="../styles/GlobalStyles.css" rel="stylesheet" type="text/css" />
-    <link
-      href="../styles/ClientsPortalPageStyles.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="../scripts/ClientsPortalPageScript.js" defer></script>
-    <title>Client's Portal Page</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="left">
-        <a href="../pages/indexPage.html" class="nav-link">STRONA GŁÓWNA</a>
-        <a href="/offerPage" class="nav-link">OFERTA</a>
-        <a href="../pages/AboutUsPage.html" class="nav-link">O NAS</a>
-      </div>
-      <div class="middle">
-        <a href="../pages/indexPage.html" class="nav-link nav-link-middle">
-          <img src="../images/logo.png" alt="Logo" id="logo" />
-        </a>
-      </div>
-      <div class="right">
-        <a href="../pages/ContactPage.html" class="nav-link nav-link-right"
-          >KONTAKT</a
-        >
-        <button class="clients-portal" id="clients-portal">
-          PANEL KLIENTA
-        </button>
-      </div>
-    </header>
-    <div class="clients-portal-container" id="clients-portal-container">
-      <div class="buttons-container">
-        <a href="/offerPage" class="buy-button clients-portal"
-          >KUP SUBSKRYPCJĘ</a
-        >
-        <a href="/offerPage" class="buy-button clients-portal">KUP ZGODY</a>
-        <a
-          href="/agreementsGeneratorPage"
-          class="buy-button clients-portal"
-          id="generator-button-top"
-          >WYPEŁNIJ ZGODĘ</a
-        >
-        <a
-          href="/logout"
-          class="buy-button clients-portal"
-          id="logout-button-top"
-          >WYLOGUJ</a
-        >
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../styles/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="../styles/GlobalStyles.css" rel="stylesheet" type="text/css" />
+  <link href="../styles/ClientsPortalPageStyles.css" rel="stylesheet" type="text/css" />
+  <script src="../scripts/ClientsPortalPageScript.js" defer></script>
+  <title>Client's Portal Page</title>
+</head>
 
-      <h2>Witamy w portalu klienta przypisanym do konta: <%= email %></h2>
-      <!-- The <%= %> tag is used to output the value of a JS expression into the table-->
-      <br />
-      <p class="headings">
-        W tym miejscu możesz zobaczyć swoje aktywne subskrypcje:
-      </p>
-      <div class="subscriptions-list">
-        <% if (subscriptionInfo.length==0) { %>
+<body>
+  <header>
+    <div class="left">
+      <a href="../pages/indexPage.html" class="nav-link">STRONA GŁÓWNA</a>
+      <a href="/offerPage" class="nav-link">OFERTA</a>
+      <a href="../pages/AboutUsPage.html" class="nav-link">O NAS</a>
+    </div>
+    <div class="middle">
+      <a href="../pages/indexPage.html" class="nav-link nav-link-middle">
+        <img src="../images/logo.png" alt="Logo" id="logo" />
+      </a>
+    </div>
+    <div class="right">
+      <a href="../pages/ContactPage.html" class="nav-link nav-link-right">KONTAKT</a>
+      <button class="clients-portal" id="clients-portal">
+        PANEL KLIENTA
+      </button>
+    </div>
+  </header>
+  <div class="clients-portal-container" id="clients-portal-container">
+    <div class="buttons-container">
+      <a href="/offerPage" class="buy-button clients-portal">KUP SUBSKRYPCJĘ</a>
+      <a href="/offerPage" class="buy-button clients-portal">KUP ZGODY</a>
+      <a href="/agreementsGeneratorPage" class="buy-button clients-portal" id="generator-button-top">WYPEŁNIJ ZGODĘ</a>
+      <a href="/logout" class="buy-button clients-portal" id="logout-button-top">WYLOGUJ</a>
+    </div>
+
+    <h2>Witamy w portalu klienta przypisanym do konta: <%= email %>
+    </h2>
+    <!-- The <%= %> tag is used to output the value of a JS expression into the table-->
+    <br />
+    <p class="headings">
+      W tym miejscu możesz zobaczyć swoje aktywne subskrypcje:
+    </p>
+    <div class="subscriptions-list">
+      <% if (subscriptionInfo.length==0) { %>
         <p>Nie posiadasz zakupionych subskrypcji.</p>
         <% } else { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Nazwa subskrypcji:</th>
-              <th>Dostęp wygasa:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% subscriptionInfo.forEach(subscription=> { let rawDate = new
-            Date(subscription.accessExpiresDate); let formattedDate =
-            `${rawDate.getDate()}/${rawDate.getMonth() +
-            1}/${rawDate.getFullYear()}`; %>
-            <tr>
-              <td><%= subscription.subscriptionName.replace(/_/g, ' ' ) %></td>
-              <td><%= formattedDate %></td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-        <% } %>
-      </div>
-      <h3 class="headings">
-        W tym miejscu możesz zobaczyć swoje zakupione zgody:
-      </h3>
-      <div class="agreements-list">
-        <% if (agreements.length==0) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Nazwa subskrypcji:</th>
+                <th>Dostęp wygasa:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% subscriptionInfo.forEach(subscription=> { let rawDate = new
+                Date(subscription.accessExpiresDate); let formattedDate =
+                `${rawDate.getDate()}/${rawDate.getMonth() +
+                1}/${rawDate.getFullYear()}`; %>
+                <tr>
+                  <td>
+                    <%= subscription.subscriptionName.replace(/_/g, ' ' ) %>
+                  </td>
+                  <td>
+                    <%= formattedDate %>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <% } %>
+    </div>
+    <h3 class="headings">
+      W tym miejscu możesz zobaczyć swoje zakupione zgody:
+    </h3>
+    <div class="agreements-list">
+      <% if (agreements.length==0) { %>
         <p>Nie posiadasz zakupionych zgód</p>
         <% } else { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Nazwa zgody:</th>
-              <th>Dostęp wygaza:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% agreements.forEach(agreement=> { let rawDate = new
-            Date(agreement.accessExpiresDate); // Here we just use
-            rawDate.getMonth() + 1 for numeric month (added 1 since getMonth()
-            returns 0-11) let formattedDate =
-            `${rawDate.getDate()}/${rawDate.getMonth() +
-            1}/${rawDate.getFullYear()}`; %>
-            <tr>
-              <td><%= agreement.agreementName.replace(/_/g, ' ' ) %></td>
-              <td><%= formattedDate %></td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-        <% } %>
-      </div>
-
-      <br />
-      <div class="buttons-container">
-        <a href="/offerPage" class="buy-button clients-portal"
-          >KUP SUBSKRYPCJĘ</a
-        >
-        <a href="/offerPage" class="buy-button clients-portal">KUP ZGODY</a>
-        <a
-          href="/agreementsGeneratorPage"
-          class="buy-button clients-portal"
-          id="generator-button-bottom"
-          >WYPEŁNIJ ZGODĘ</a
-        >
-        <a
-          href="/logout"
-          class="buy-button clients-portal"
-          id="logout-button-bottom"
-          >WYLOGUJ</a
-        >
-      </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Nazwa zgody:</th>
+                <th>Dostęp wygaza:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% agreements.forEach(agreement=> { let rawDate = new
+                Date(agreement.accessExpiresDate); // Here we just use
+                rawDate.getMonth() + 1 for numeric month (added 1 since getMonth()
+                returns 0-11) let formattedDate =
+                `${rawDate.getDate()}/${rawDate.getMonth() +
+                1}/${rawDate.getFullYear()}`; %>
+                <tr>
+                  <td>
+                    <%= agreement.agreementName.replace(/_/g, ' ' ) %>
+                  </td>
+                  <td>
+                    <%= formattedDate %>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <% } %>
     </div>
-  </body>
+
+    <br />
+    <div class="buttons-container">
+      <a href="/offerPage" class="buy-button clients-portal">KUP SUBSKRYPCJĘ</a>
+      <a href="/offerPage" class="buy-button clients-portal">KUP ZGODY</a>
+      <a href="/agreementsGeneratorPage" class="buy-button clients-portal" id="generator-button-bottom">WYPEŁNIJ
+        ZGODĘ</a>
+      <a href="/logout" class="buy-button clients-portal" id="logout-button-bottom">WYLOGUJ</a>
+    </div>
+  </div>
+</body>
+
 </html>
