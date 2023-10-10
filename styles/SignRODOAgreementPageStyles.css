@@ -21,6 +21,14 @@ canvas {
   height: 842px;
 }
 
+@media screen and (max-width: 700px) {
+  #signatureCanvas {
+    width: 300px;
+    height: 420px;
+  }
+
+}
+
 #pageIndicator {
   text-align: center;
   margin: 3%;
