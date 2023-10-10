@@ -93,3 +93,11 @@ p {
   font-size: 0.9rem;
   max-width: 50%;
 }
+
+#server-response {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
