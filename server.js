@@ -4444,6 +4444,9 @@ app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
 /*********************************************************************************/
 //Admin tools
 
+//Handle the request to the admin panel
+
+
 //Prevent the idling of the db connection
 setInterval(function () {
   connection.query("SELECT 1");
