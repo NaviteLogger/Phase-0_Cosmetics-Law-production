@@ -366,6 +366,9 @@ function checkEmailConfirmation(req, res, next) {
 
 async function checkAuthorization(req, res, next) {
   console.log("Checking whether the user is authorized to access the admin tools: " + req.isAuthenticated());
+  console.log("");
+
+  //Query the database to verify whether the user is authorized to access the admin tools
 }
 
 //This is the function that will retrieve the .docx file, fill it, and save it under a new name in the .pdf file format
