@@ -392,6 +392,13 @@ async function checkAuthorization(req, res, next) {
       }
     )
   });
+
+  //Now, based on the results, either call next() or redirect the user to the home page
+  if (isAuthorized) {
+    return next();
+  } else {
+    res.redirect("/");
+  }
 }
 
 //This is the function that will retrieve the .docx file, fill it, and save it under a new name in the .pdf file format
