@@ -4441,6 +4441,9 @@ app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
   res.redirect("/pages/indexPage.html");
 });
 
+/*********************************************************************************/
+//Admin tools
+
 //Prevent the idling of the db connection
 setInterval(function () {
   connection.query("SELECT 1");
