@@ -369,6 +369,29 @@ async function checkAuthorization(req, res, next) {
   console.log("");
 
   //Query the database to verify whether the user is authorized to access the admin tools
+  const isAuthorized = await new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT * FROM Admins WHERE email = ?",
+      [req.session.passport.user.email],
+      (error, results) => {
+        if (error) {
+          console.log(
+            "Error while querying the database for the specific email (by clientId): ",
+            error
+          );
+          reject(error);
+        }
+
+        if (results.length === 0) {
+          console.log("User is not authorized to access the admin tools");
+          resolve(false);
+        } else {
+          console.log("User is authorized to access the admin tools");
+          resolve(true);
+        }
+      }
+    )
+  });
 }
 
 //This is the function that will retrieve the .docx file, fill it, and save it under a new name in the .pdf file format
