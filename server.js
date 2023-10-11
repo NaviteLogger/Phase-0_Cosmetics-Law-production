@@ -314,9 +314,7 @@ passport.deserializeUser((user, done) => {
 
 //This is the function which checks if the user is authenticated
 function checkAuthentication(req, res, next) {
-  console.log(
-    "Checking whether the user is authenticated: " + req.isAuthenticated()
-  );
+  console.log("Checking whether the user is authenticated: " + req.isAuthenticated());
   console.log("");
   if (req.isAuthenticated()) {
     //If the user is authenticated (the res.isAuthenticated() status is true), call next()
