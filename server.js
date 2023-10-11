@@ -283,9 +283,9 @@ passport.serializeUser((user, done) => {
   //Console.log it for debugging purposes
   console.log(
     "serializing the user: user.clientId: " +
-      user.clientId +
-      " user.email: " +
-      user.email
+    user.clientId +
+    " user.email: " +
+    user.email
   );
   console.log("");
   done(null, { id: user.clientId, email: user.email }); //Keeps the client_id and email in the session for further use
@@ -334,8 +334,8 @@ function checkEmailConfirmation(req, res, next) {
 
   console.log(
     "Checking email confirmation for: " +
-      email +
-      ", calling checkEmailConfirmation()"
+    email +
+    ", calling checkEmailConfirmation()"
   );
 
   //Query the database to find the user with the given email
@@ -412,8 +412,8 @@ const fillAndSaveDocument = async (
 async function getAgreementFileNameById(agreementId) {
   console.log(
     "Received the request to get agreement file name by id: " +
-      agreementId +
-      ", calling getAgreementFileNameById()"
+    agreementId +
+    ", calling getAgreementFileNameById()"
   );
 
   const fileName = await new Promise((resolve, reject) => {
@@ -430,9 +430,9 @@ async function getAgreementFileNameById(agreementId) {
         } else {
           console.log(
             "Agreement fileName: " +
-              results[0].fileName +
-              " is associated with agreementId: " +
-              agreementId
+            results[0].fileName +
+            " is associated with agreementId: " +
+            agreementId
           );
           resolve(results[0].fileName);
         }
@@ -442,10 +442,10 @@ async function getAgreementFileNameById(agreementId) {
 
   console.log(
     "Retrieved agreement file name: " +
-      fileName +
-      " for agreement id: " +
-      agreementId +
-      " from the database"
+    fileName +
+    " for agreement id: " +
+    agreementId +
+    " from the database"
   );
   console.log("");
   return fileName;
@@ -550,7 +550,7 @@ app.post("/verifyEmailAddress", (req, res) => {
       //Console.log it for debugging purposes
       console.log(
         "Email verification code from the database: " +
-          results[0].verificationCode
+        results[0].verificationCode
       );
 
       if (results[0].verificationCode == emailVerificationCode) {
@@ -564,7 +564,7 @@ app.post("/verifyEmailAddress", (req, res) => {
             if (error) {
               console.log(
                 "Error while querying the database: setting isVerified to 1 for email failed: " +
-                  email,
+                email,
                 error
               );
             }
@@ -578,9 +578,9 @@ app.post("/verifyEmailAddress", (req, res) => {
       } else {
         console.log(
           "Email verification code: " +
-            emailVerificationCode +
-            " does not match the email: " +
-            email
+          emailVerificationCode +
+          " does not match the email: " +
+          email
         );
         res.json({
           status: "incorrect_code",
@@ -897,8 +897,8 @@ app.post("/makePaymentForAgreements", async (req, res) => {
           } else {
             console.log(
               "Order with order id: " +
-                extOrderId +
-                " has been inserted into the database (for individual agreements)"
+              extOrderId +
+              " has been inserted into the database (for individual agreements)"
             );
             resolve();
           }
@@ -922,8 +922,8 @@ app.post("/makePaymentForAgreements", async (req, res) => {
             } else {
               console.log(
                 "Product with name: " +
-                  selectedAgreementsNames[i] +
-                  " has been inserted into the database"
+                selectedAgreementsNames[i] +
+                " has been inserted into the database"
               );
               resolve();
             }
@@ -1053,8 +1053,8 @@ app.post(
             } else {
               console.log(
                 "Payment information for order with order id: " +
-                  orderId +
-                  " has been inserted into the Orders table"
+                orderId +
+                " has been inserted into the Orders table"
               );
               resolve();
             }
@@ -1077,8 +1077,8 @@ app.post(
             } else {
               console.log(
                 "Payment information for order with order id: " +
-                  orderId +
-                  " has been inserted into the OrderedProducts table"
+                orderId +
+                " has been inserted into the OrderedProducts table"
               );
               resolve();
             }
@@ -1105,8 +1105,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -1132,8 +1132,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -1159,8 +1159,8 @@ app.post(
                 } else {
                   console.log(
                     "WasSent column value for order with order id: " +
-                      orderId +
-                      " has been retrieved from the database"
+                    orderId +
+                    " has been retrieved from the database"
                   );
                   resolve(results[0].wasSent);
                 }
@@ -1182,8 +1182,8 @@ app.post(
                   } else {
                     console.log(
                       "Order with order id: " +
-                        orderId +
-                        " has been updated in the database"
+                      orderId +
+                      " has been updated in the database"
                     );
                     resolve();
                   }
@@ -1203,8 +1203,8 @@ app.post(
                   } else {
                     console.log(
                       "Email for order with order id: " +
-                        orderId +
-                        " has been retrieved from the database"
+                      orderId +
+                      " has been retrieved from the database"
                     );
                     resolve(results[0].customerEmail);
                   }
@@ -1225,8 +1225,8 @@ app.post(
                     } else {
                       console.log(
                         "Bought agreements for order with order id: " +
-                          orderId +
-                          " have been retrieved from the database"
+                        orderId +
+                        " have been retrieved from the database"
                       );
                       resolve(results);
                     }
@@ -1248,8 +1248,8 @@ app.post(
                       } else {
                         console.log(
                           "Bought agreement: " +
-                            results[0].fileName +
-                            " has been retrieved from the database"
+                          results[0].fileName +
+                          " has been retrieved from the database"
                         );
                         resolve(results[0].fileName);
                       }
@@ -1325,8 +1325,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -1375,8 +1375,8 @@ app.get("/orderStatus/:orderId", async (req, res) => {
           } else {
             console.log(
               "Order status: " +
-                results[0].status +
-                " has been retrieved from the database"
+              results[0].status +
+              " has been retrieved from the database"
             );
             resolve(results[0].status);
           }
@@ -1418,8 +1418,8 @@ app.post("/buySubscription", async (req, res) => {
             } else {
               console.log(
                 "Number of agreements in subscription: " +
-                  results[0].numberOfAgreements +
-                  " has been retrieved from the database"
+                results[0].numberOfAgreements +
+                " has been retrieved from the database"
               );
               resolve(results[0].numberOfAgreements);
             }
@@ -1479,8 +1479,8 @@ app.get(
             } else {
               console.log(
                 "Subscription name: " +
-                  results[0].subscriptionName +
-                  " has been retrieved from the database"
+                results[0].subscriptionName +
+                " has been retrieved from the database"
               );
               resolve(results[0].subscriptionName);
             }
@@ -1548,8 +1548,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Is best subscription: " +
-                results[0].isBestSubscription +
-                " has been retrieved from the database"
+              results[0].isBestSubscription +
+              " has been retrieved from the database"
             );
             resolve(results[0].isBestSubscription);
           }
@@ -1595,8 +1595,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
               } else {
                 console.log(
                   "Number of agreements in subscription: " +
-                    results[0].numberOfAgreements +
-                    " has been retrieved from the database"
+                  results[0].numberOfAgreements +
+                  " has been retrieved from the database"
                 );
                 resolve(results[0].numberOfAgreements);
               }
@@ -1636,8 +1636,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Subscription price: " +
-                results[0].price +
-                " has been retrieved from the database"
+              results[0].price +
+              " has been retrieved from the database"
             );
             resolve(results[0].price);
           }
@@ -1663,8 +1663,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Subscription name: " +
-                results[0].subscriptionName +
-                " has been retrieved from the database"
+              results[0].subscriptionName +
+              " has been retrieved from the database"
             );
             resolve(results[0].subscriptionName);
           }
@@ -1687,8 +1687,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Selected agreements' names: " +
-                results[0].agreementName +
-                " have been retrieved from the database"
+              results[0].agreementName +
+              " have been retrieved from the database"
             );
             resolve(results);
           }
@@ -1771,8 +1771,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Order with order id: " +
-                extOrderId +
-                " has been inserted into the database (subscription)"
+              extOrderId +
+              " has been inserted into the database (subscription)"
             );
             resolve();
           }
@@ -1792,8 +1792,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
           } else {
             console.log(
               "Subscription with name: " +
-                subscriptionName +
-                " has been inserted into the database"
+              subscriptionName +
+              " has been inserted into the database"
             );
             resolve();
           }
@@ -1818,8 +1818,8 @@ app.post("/makePaymentForSubscription", async (req, res) => {
             } else {
               console.log(
                 "Product with name: " +
-                  selectedAgreementsNames[i] +
-                  " has been inserted into the database"
+                selectedAgreementsNames[i] +
+                " has been inserted into the database"
               );
               resolve();
             }
@@ -1954,8 +1954,8 @@ app.post(
             } else {
               console.log(
                 "Email for order with order id: " +
-                  orderId +
-                  " has been retrieved from the database"
+                orderId +
+                " has been retrieved from the database"
               );
               resolve(results[0].customerEmail);
             }
@@ -2002,8 +2002,8 @@ app.post(
                     } else {
                       console.log(
                         "Subscription name: " +
-                          innerResults[0].productName +
-                          " has been retrieved from the database"
+                        innerResults[0].productName +
+                        " has been retrieved from the database"
                       );
                       outerResolve(innerResults[0].productName);
                     }
@@ -2027,8 +2027,8 @@ app.post(
             } else {
               console.log(
                 "Payment information for order with order id: " +
-                  orderId +
-                  " has been inserted into the Orders table"
+                orderId +
+                " has been inserted into the Orders table"
               );
               resolve();
             }
@@ -2048,8 +2048,8 @@ app.post(
             } else {
               console.log(
                 "Payment information for order with order id: " +
-                  orderId +
-                  " has been inserted into the OrderProducts table"
+                orderId +
+                " has been inserted into the OrderProducts table"
               );
               resolve();
             }
@@ -2073,8 +2073,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -2097,8 +2097,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -2121,8 +2121,8 @@ app.post(
                 } else {
                   console.log(
                     "WasSent column value for order with order id: " +
-                      orderId +
-                      " has been retrieved from the database"
+                    orderId +
+                    " has been retrieved from the database"
                   );
                   resolve(results[0].wasSent);
                 }
@@ -2144,8 +2144,8 @@ app.post(
                   } else {
                     console.log(
                       "Order with order id: " +
-                        orderId +
-                        " has been updated in the database"
+                      orderId +
+                      " has been updated in the database"
                     );
                     resolve();
                   }
@@ -2192,8 +2192,8 @@ app.post(
                           } else {
                             console.log(
                               "Associated agreements for subscription with id: " +
-                                extOrderId +
-                                " have been retrieved from the database"
+                              extOrderId +
+                              " have been retrieved from the database"
                             );
                             outerResolve(innerResults);
                           }
@@ -2232,8 +2232,8 @@ app.post(
                     } else {
                       console.log(
                         "Associated agreement: " +
-                          associatedAgreements[i].productName +
-                          " has been inserted into the AgreementsOwnerships table"
+                        associatedAgreements[i].productName +
+                        " has been inserted into the AgreementsOwnerships table"
                       );
                       resolve();
                     }
@@ -2259,8 +2259,8 @@ app.post(
                   } else {
                     console.log(
                       "Subscription: " +
-                        subscriptionName +
-                        " has been inserted into the SubscriptionsOwnerships table"
+                      subscriptionName +
+                      " has been inserted into the SubscriptionsOwnerships table"
                     );
                     resolve();
                   }
@@ -2303,8 +2303,8 @@ app.post(
                   } else {
                     console.log(
                       "WasSent column value for order with order id: " +
-                        orderId +
-                        " has been updated in the database"
+                      orderId +
+                      " has been updated in the database"
                     );
                     resolve();
                   }
@@ -2329,8 +2329,8 @@ app.post(
                 } else {
                   console.log(
                     "Order with order id: " +
-                      orderId +
-                      " has been updated in the database"
+                    orderId +
+                    " has been updated in the database"
                   );
                   resolve();
                 }
@@ -2395,12 +2395,12 @@ app.get(
               if (results.length === 0) {
                 console.log(
                   "Found no agreements associated with the account: " +
-                    userEmail
+                  userEmail
                 );
               } else {
                 console.log(
                   "Found the following agreements associated with the account: " +
-                    userEmail
+                  userEmail
                 );
                 results.forEach((row) => {
                   console.log(row.agreementName);
@@ -2431,12 +2431,12 @@ app.get(
               if (results.length === 0) {
                 console.log(
                   "Found no subscriptions associated with the account: " +
-                    userEmail
+                  userEmail
                 );
               } else {
                 console.log(
                   "Found the following subscriptions associated with the account: " +
-                    userEmail
+                  userEmail
                 );
                 results.forEach((row) => {
                   console.log(row.subscriptionName);
@@ -2691,9 +2691,8 @@ app.post("/postAgreementData", checkAuthentication, async (req, res) => {
 
     //Construct the formatted date
     const currentDate = new Date();
-    const formattedDate = `${currentDate.getFullYear()}-${
-      currentDate.getMonth() + 1
-    }-${currentDate.getDate()}_${currentDate.getHours()}-${currentDate.getMinutes()}-${currentDate.getSeconds()}`;
+    const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1
+      }-${currentDate.getDate()}_${currentDate.getHours()}-${currentDate.getMinutes()}-${currentDate.getSeconds()}`;
     req.session.formattedDate = formattedDate;
     console.log(`The formatted date is ${formattedDate}`);
 
@@ -3966,10 +3965,10 @@ app.get(
                 __dirname,
                 "agreements",
                 "RODO_agreement_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -3985,11 +3984,11 @@ app.get(
                 __dirname,
                 "agreements",
                 req.session.agreementPrefix +
-                  "_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                "_" +
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4004,10 +4003,10 @@ app.get(
                 __dirname,
                 "interviews",
                 "interview_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4022,10 +4021,10 @@ app.get(
                 __dirname,
                 "agreements",
                 "Photo_agreement_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4081,10 +4080,10 @@ app.get(
                 __dirname,
                 "agreements",
                 "RODO_agreement_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4100,11 +4099,11 @@ app.get(
                 __dirname,
                 "agreements",
                 req.session.agreementPrefix +
-                  "_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                "_" +
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4119,10 +4118,10 @@ app.get(
                 __dirname,
                 "interviews",
                 "interview_" +
-                  req.session.formattedDate +
-                  "_" +
-                  userEmail +
-                  ".pdf"
+                req.session.formattedDate +
+                "_" +
+                userEmail +
+                ".pdf"
               ),
               contentType: "application/pdf",
             },
@@ -4422,7 +4421,7 @@ app.post("/register", async (req, res) => {
         if (error) {
           console.log(
             "Error occurred while sending email with email confirmation code:" +
-              error.message
+            error.message
           );
         } else {
           console.log("Email sent successfully!", info.response);
@@ -4441,7 +4440,7 @@ app.post("/register", async (req, res) => {
 
 //Handle the logout request
 app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
-  req.logout(() => {});
+  req.logout(() => { });
   res.redirect("/pages/indexPage.html");
 });
 
