@@ -366,6 +366,10 @@ function checkEmailConfirmation(req, res, next) {
   );
 }
 
+async function checkAuthorization(req, res, next) {
+  
+}
+
 //This is the function that will retrieve the .docx file, fill it, and save it under a new name in the .pdf file format
 const fillAndSaveDocument = async (
   fileName,
@@ -4446,7 +4450,7 @@ app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
 
 //Handle the request to the admin panel
 app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, async (req, res) => {
-  
+
 });
 
 //Prevent the idling of the db connection
