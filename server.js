@@ -4479,7 +4479,7 @@ app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
 //Admin tools
 
 //Handle the request to the admin panel
-app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, async (req, res) => {
+app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, checkAuthorization, async (req, res) => {
 
 });
 
