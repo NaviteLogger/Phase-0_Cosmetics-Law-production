@@ -24,7 +24,7 @@ document.getElementById('search-user').addEventListener('submit', (event) => {
 
             if (data.status === 'user_found') {
                 setTimeout(() => {
-                    window.location.href = '/userPage';
+                    //Add the functionality to display the user's data
                 }, 1500); //Redirect to the user page after 1,5 seconds
             }
         })

@@ -4488,6 +4488,9 @@ app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, checkAuthorization, asy
 
 app.post('/searchUser', async (req, res) => {
   //Received a request to search for a user from admin panel
+
+  //Extract the desired email from the request body
+  const email = req.body;
 });
 
 //Prevent the idling of the db connection
