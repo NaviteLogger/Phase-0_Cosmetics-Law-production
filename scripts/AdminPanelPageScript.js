@@ -7,5 +7,5 @@ document.getElementById('search-user').addEventListener('submit', (event) => {
     event.preventDefault();
 
     //Retrieve the desired user's email
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('search-user-input').value;
 });

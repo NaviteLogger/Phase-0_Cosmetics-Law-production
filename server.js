@@ -4481,6 +4481,9 @@ app.get("/logout", checkAuthentication, checkEmailConfirmation, (req, res) => {
 //Handle the request to the admin panel
 app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, checkAuthorization, async (req, res) => {
   console.log("Received a request to the admin panel. Email: ", req.session.passport.user.email);
+
+  //Send the admin panel page
+  res.render('AdminPanelPage');
 });
 
 //Prevent the idling of the db connection
