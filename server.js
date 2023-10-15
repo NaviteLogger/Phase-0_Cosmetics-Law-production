@@ -4486,6 +4486,10 @@ app.get('/8M365YGNFG6D/adminPanel', checkAuthentication, checkAuthorization, asy
   res.render('AdminPanelPage');
 });
 
+app.post('/searchUser', async (req, res) => {
+  //Received a request to search for a user from admin panel
+});
+
 //Prevent the idling of the db connection
 setInterval(function () {
   connection.query("SELECT 1");
