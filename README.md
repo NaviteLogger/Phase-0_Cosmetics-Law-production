@@ -72,9 +72,21 @@ node server.js
 
 Visit http://localhost:3000 (or whichever port you've set) in your browser to see the website in action.
 
+## Security
+
+We take security seriously. To protect your application from common exploits:
+
+- Always use secure connections over HTTPS.
+- Ensure all dependencies are always up-to-date and no security vulnerabilities are present.
+- Store all sensitive data (like database passwords) securely, e.g., using environment variables.
+
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues, suggest improvements, or make pull requests to help enhance this project.
+
+## Support
+
+If you have any questions or concerns, please contact us at [pomoc@prawokosmetyczne.pl](mailto:prawokosmetyczne.pl).
 
 ## License
 
