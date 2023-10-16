@@ -32,37 +32,26 @@ Follow these steps to set up and run CodeNews on your local machine.
    git clone https://github.com/NaviteLogger/Website-Production-Repo-Copy.git
    ```
 
-2. Navigate to the project directory:
+2. Set up the MySQL database:
 
-   ```bash
-   cd CodeNews
-   ```
-
-3. Create a virtual environment (optional):
-
-   ```bash
-   python -m venv venv
-   ```
-
-4. Activate the virtual environment:
-
-   ```bash
-   source venv/bin/activate
-   ```
+- Start your MySQL server (depends on your installation, e.g., sudo service mysql start or mysql.server start).
+- Create a database for the project.
+- Import any necessary data (if provided as an SQL dump or similar).
+- Update the database connection details in the project configuration (usually found in a config or .env file).
 
 ### Install Dependencies
 
 1. Install project dependencies:
 
    ```bash
-   pip install -r requirements.txt
+   npm install
    ```
 
 ### Database Setup
 
-1. Configure your MySQL database settings in `config.py`. Update the following fields with your database information:
+1. Configure your MySQL database settings in `.env`. Update the following fields with your database information:
 
-```python
+```javascript
 DB_CONFIG = {
     "host": "your_database_host",
     "user": "your_database_user",
@@ -71,25 +60,17 @@ DB_CONFIG = {
 }
 ```
 
-2. Initialize the database schema by running the following command:
-
-```bash
-python init_db.py
-```
-
 ## Usage
 
 ### Running the Web Scrapper:
 
-1. Start the web scraping component to collect news articles:
+1. Start the web server using the command:
 
 ```bash
-python scraper.py
+node server.js
 ```
 
-This script will periodically scrape news articles from selected sources and store them in the MySQL database for further processing.
-
-2. Access the summarized news articles through your preferred frontend or API, which you can develop based on the project's needs.
+Visit http://localhost:3000 (or whichever port you've set) in your browser to see the website in action.
 
 ## Contributing
 
