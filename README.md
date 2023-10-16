@@ -52,12 +52,11 @@ Follow these steps to set up and run CodeNews on your local machine.
 1. Configure your MySQL database settings in `.env`. Update the following fields with your database information:
 
 ```javascript
-DB_CONFIG = {
-    "host": "your_database_host",
-    "user": "your_database_user",
-    "password": "your_database_password",
-    "database": "your_database_name",
-}
+DB_HOST="your_host"
+DB_PORT="your_port"
+DB_DATABASE="your_database"
+DB_USER="your_username"
+DB_PASSWORD="your_password"
 ```
 
 ## Usage
