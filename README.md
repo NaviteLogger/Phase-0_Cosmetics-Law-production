@@ -11,7 +11,9 @@ Welcome to our Law Firm's Cosmetics Consents platform. Designed exclusively for 
   - [Database Setup](#database-setup)
 - [Usage](#usage)
   - [Running the Web Server](#running-the-web-scraper)
+- [Security](#security)
 - [Contributing](#contributing)
+- [Support](#support)
 - [License](#license)
 
 ## Getting Started
