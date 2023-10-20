@@ -123,6 +123,7 @@ app.use(
   )
 );
 
+//Use this to enable the IP logging
 app.set("trust proxy", true);
 
 //Set up the nodemailer (SMTP transport)
