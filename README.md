@@ -70,6 +70,22 @@ SUBSCRIPTION_PAYMENT_NOTIFY_URL="your_subscription_payment_notify_url"
 DEFAULT_EMAIL="your_default_email"
 ```
 
+2. The database schema looks like this:
++--------------------------+
+| Tables_in_CosmeticsLawDB |
++--------------------------+
+| Admins                   |
+| Agreements               |
+| AgreementsOwnerships     |
+| Clients                  |
+| EmailVerifications       |
+| OrderedProducts          |
+| Orders                   |
+| Questions                |
+| Subscriptions            |
+| SubscriptionsOwnerships  |
++--------------------------+
+
 ## Usage
 
 ### Running the Web Server:
